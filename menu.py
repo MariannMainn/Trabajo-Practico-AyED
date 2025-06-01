@@ -33,15 +33,15 @@ while on is not False:
                 else:       
                         print (f"»[archivo] {file.name}")
                    
-    if opcion ==2:
+    elif opcion ==2:
             print("opcion 2.mostrar directorio")
             dirActual = Path.cwd()
             print(dirActual)
 
-    if opcion == 3:
+    elif opcion == 3:
            buscar_archivo = int(input("buscar archivos por \n1.nombre \n2.extension: "))
            if buscar_archivo == 1:
-                namearch = input("ingrese el nombre del archivo/carpeta: ")
+                namearch = input("ingrese el nombre del archivo: ")
            for file in defaultdirectory.glob(f"*{namearch}*.*"):
                         print(file)
            if buscar_archivo ==2:
@@ -50,7 +50,7 @@ while on is not False:
                         print(file)
 
     
-    if opcion == 4:   
+    elif opcion == 4:   
         name_folder = input("ingrese nombre de nueva carpeta:-->")
         pathDir = Path(f"./{name_folder}")
         
@@ -59,14 +59,29 @@ while on is not False:
                 print("carpeta creado exitosamente...")
         except Exception as e:
                 print("error esta carpeta ya existe")
+    elif opcion == 5:
+        print("5. borrar archivo/carpeta")
+        borrar = input("nombre de la carpeta: ")
+        condicion = str(input(f"desea borrar la carpeta {borrar} si /no :"))
+        try:
+            if condicion == "si":
+                defaultdirectory= Path(f"./{borrar}")
+                defaultdirectory.rmdir()
+        except Exception as e:
+                print("carpeta no encontrada")
 
 
+    elif opcion == 6:
+           pass
 
             
-    if opcion == 0:
+    elif opcion == 0:
             print("opcion 0.Salida")
             opcion = 0
             break
+    
+    else:
+           print("opcion incorrecta")
     
     
     #condicional para pausar el ciclo y que no se repita innecesariamente
