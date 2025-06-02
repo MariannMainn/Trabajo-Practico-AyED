@@ -3,6 +3,7 @@ var0="INICIO"
 print(var0.center(100,"*"))
 
 # IMPORTS DE MODULOS NECESARIOS--->
+import shutil
 import os
 from pathlib import Path
 
@@ -39,6 +40,7 @@ while on is not False:
             print(dirActual)
 
     elif opcion == 3:
+           print("opcion 3.ver archivos por referencia")
            buscar_archivo = int(input("buscar archivos por \n1.nombre \n2.extension: "))
            if buscar_archivo == 1:
                 namearch = input("ingrese el nombre del archivo: ")
@@ -51,6 +53,7 @@ while on is not False:
 
     
     elif opcion == 4:   
+        print("opcion 4. crear nueva carpeta")
         name_folder = input("ingrese nombre de nueva carpeta:-->")
         pathDir = Path(f"./{name_folder}")
         
@@ -59,8 +62,10 @@ while on is not False:
                 print("carpeta creado exitosamente...")
         except Exception as e:
                 print("error esta carpeta ya existe")
+                
+                
     elif opcion == 5:
-        print("5. borrar archivo/carpeta")
+        print("opcion 5. borrar archivo/carpeta")
         borrar = input("nombre de la carpeta: ")
         condicion = str(input(f"desea borrar la carpeta {borrar} si /no :"))
         try:
@@ -72,7 +77,9 @@ while on is not False:
 
 
     elif opcion == 6:
-           pass
+           print("opcion 6. copiar un archivo")
+           arch = input("nombre del archivo :__")
+           shutil.copy2(Path(f"./{arch}"),".")
 
             
     elif opcion == 0:
@@ -93,4 +100,5 @@ while on is not False:
 
 
 #control para probar que el ciclo termino exitosamente
+print()
 print("fuera del programa")
